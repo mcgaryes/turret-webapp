@@ -1,0 +1,9 @@
+{
+  "name": "turret-webapp",
+  "description": "Webapp generator for turret",
+  "homepage": "https://github.com/mcgaryes/turret-webapp",
+  "bin": {
+    "turret-webapp": "./turret-webapp-cli.js"
+  },
+  "main": "./turret.js"
+}
