@@ -26,11 +26,11 @@ module.exports = function(grunt) {
                     cwd: "source",
                     dest: RELEASE_DIRECTORY,
                     src: [
-                        <% if (requirejs.slice(0,1) !== "y") { %>
+                        <? if (requirejs.slice(0,1) !== "y") { ?>
                         "app/**",
-                        <% } else { %>
+                        <? } else { ?>
                         "app/libs/requirejs.js",
-                        <% } %>
+                        <? } ?>
                         "*.{ico,txt,html,js,json}",
                         "assets/**/*",
                         "assets/**/*",
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
             },
             all: ["source/app/**/*.js", "!source/app/libs/*"]
         },
-        <% if (requirejs.slice(0,1) === "y") { %>
+        <? if (requirejs.slice(0,1) === "y") { ?>
         requirejs: {
             all: {
                 options: {
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        <% } %>
+        <? } ?>
         sass: {
             all: {
                 files: {
@@ -108,12 +108,12 @@ module.exports = function(grunt) {
         grunt.loadNpmTasks("grunt-contrib-jshint");
         grunt.loadNpmTasks("grunt-contrib-clean");
         grunt.loadNpmTasks("grunt-contrib-copy");
-        <% if (requirejs.slice(0,1) === "y") { %>
+        <? if (requirejs.slice(0,1) === "y") { ?>
         grunt.loadNpmTasks("grunt-contrib-requirejs");
         grunt.task.run(["jshint", "clean", "compile", "requirejs", "copy"]);
-        <% } else { %>
+        <? } else { ?>
         grunt.task.run(["jshint", "clean", "compile", "copy"]);
-        <% } %>
+        <? } ?>
     });
 
     grunt.registerTask("install", "Installing application dependencies...", function() {

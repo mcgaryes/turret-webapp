@@ -1,10 +1,10 @@
 "use strict";
 
-<% if (requirejs.slice(0,1) !== "y") { %>
+<? if (requirejs.slice(0,1) !== "y") { ?>
 $(function(){
 	console.log("ready");
 });
-<% } else { %>
+<? } else { ?>
 require.config({
 	paths: {
 		jquery: "libs/jquery",
@@ -32,4 +32,4 @@ require.config({
 require(["backbone"], function(Backbone) {
 	console.log("ready");
 });
-<% } %>
+<? } ?>
